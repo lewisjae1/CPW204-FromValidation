@@ -12,9 +12,26 @@ window.onload = function(){
  * the textbox
  */
 function main():void{
+    resetErrMessages();
     isTextPresent("first-name", "First name is required");
     isTextPresent("last-name", "Last name is required")
+}
 
+/**
+ * Resets all the spans back to the default text
+ */
+function resetErrMessages():void{
+    let allSpans = document.querySelectorAll("form>span");
+    for(let i = 0; i < allSpans.length; i++){
+        let currSpan = <HTMLElement>allSpans[i];
+        
+        if(currSpan.hasAttribute("data-required")){
+            currSpan.innerText = "*";
+        }
+        else{
+            currSpan.innerText = "";
+        }
+    }
 }
 
 function isTextPresent(id:string, errMsg:string):boolean {
