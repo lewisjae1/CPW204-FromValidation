@@ -2,6 +2,24 @@ form>span{
     color: red;
 }
 
+body{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+button{
+    padding: 0.75em;
+    border-radius: .3em;
+    background-color: darkgreen;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color:green;
+}
+
 input[type=text]{
     margin-bottom: 1em;
 }
