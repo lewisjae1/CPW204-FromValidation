@@ -11,7 +11,30 @@ window.onload = function(){
  * @param errMsg The message to display in the sibling span of
  * the textbox
  */
+function changeHeading(){
+    let heading = <HTMLElement>this;
+    let red = Math.floor(Math.random() * 255 + 1);
+    let green = Math.floor(Math.random() * 255 + 1);
+    let blue = Math.floor(Math.random() * 255 + 1);
+    let color = "rgb(" + red + "," + green + "," + blue + ")";
+    console.log(color);
+    heading.style.color = color;
+    console.log(heading.style.color);
+}
+
 function main():void{
+    let msgHeading = document.createElement("h2");
+    msgHeading.innerText = "Processing form";
+    msgHeading.setAttribute("Class", "message");
+    msgHeading.onclick = changeHeading;
+
+    let h1 = document.querySelector("h1");
+    h1.insertAdjacentElement("afterend",msgHeading);
+
+    setTimeout(function(){
+        msgHeading.remove();
+    }, 20000)
+
     resetErrMessages();
     isTextPresent("first-name", "First name is required");
     isTextPresent("last-name", "Last name is required");
