@@ -17,11 +17,18 @@ function main():void{
     isTextPresent("last-name", "Last name is required");
 
     // Validate Date
+    CheckValidDate();
+}
+
+function CheckValidDate() {
     let dobBox = <HTMLInputElement>document.getElementById("dob");
     let dob = dobBox.value;
-    if(!isValidDate(dob)){
-        let errspan = dobBox.nextElementSibling;
-        errspan.innerHTML = "Format should be mm/dd/yyyy"
+    if (!isValidDate(dob)) {
+        //let errspan = dobBox.nextElementSibling;
+        //errspan.innerHTML = "Format should be mm/dd/yyyy";
+        let errSpan = document.getElementById("dobSpan");
+        errSpan.innerHTML = "Format should be mm/dd/yyyy";
+
     }
 }
 
